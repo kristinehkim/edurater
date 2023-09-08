@@ -1,48 +1,48 @@
 import { Link } from 'react-router-dom';
 
-const RateList = ({
-  rates,
+const RatingList = ({
+  ratings,
   title,
   showTitle = true,
   showUsername = true,
 }) => {
-  if (!rates.length) {
-    return <h3>No Rates Yet</h3>;
+  if (!ratings.length) {
+    return <h3>No Ratings Yet</h3>;
   }
 
   return (
     <div>
       {showTitle && <h3>{title}</h3>}
-      {rates &&
-        rates.map((rate) => (
-          <div key={rate._id} className="card mb-3">
+      {ratings &&
+        ratings.map((rating) => (
+          <div key={rating._id} className="card mb-3">
             <h4 className="card-header bg-primary text-light p-2 m-0">
               {showUsername ? (
                 <Link
                   className="text-light"
-                  to={`/profiles/${rate.rateAuthor}`}
+                  to={`/profiles/${rating.ratingAuthor}`}
                 >
-                  {rate.rateAuthor} <br />
+                  {rating.ratingAuthor} <br />
                   <span style={{ fontSize: '1rem' }}>
-                    had this rate on {rate.createdAt}
+                    had this rating on {rating.createdAt}
                   </span>
                 </Link>
               ) : (
                 <>
                   <span style={{ fontSize: '1rem' }}>
-                    You had this rate on {rate.createdAt}
+                    You had this rating on {rating.createdAt}
                   </span>
                 </>
               )}
             </h4>
             <div className="card-body bg-light p-2">
-              <p>{rate.rateText}</p>
+              <p>{rating.ratingText}</p>
             </div>
             <Link
               className="btn btn-primary btn-block btn-squared"
-              to={`/rates/${rate._id}`}
+              to={`/ratings/${rating._id}`}
             >
-              Join the discussion on this rate.
+              Join the discussion on this rating.
             </Link>
           </div>
         ))}
@@ -50,4 +50,4 @@ const RateList = ({
   );
 };
 
-export default RateList;
+export default RatingList;

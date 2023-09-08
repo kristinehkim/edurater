@@ -24,12 +24,12 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_RATE = gql`
-  mutation addRate($rateText: String!) {
-    addRate(rateText: $rateText) {
+export const ADD_RATING = gql`
+  mutation addRating($ratingText: String!) {
+    addRating(ratingText: $ratingText) {
       _id
-      rateText
-      rateAuthor
+      ratingText
+      ratingAuthor
       createdAt
       comments {
         _id
@@ -40,11 +40,11 @@ export const ADD_RATE = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($rateId: ID!, $commentText: String!) {
-    addComment(rateId: $rateId, commentText: $commentText) {
+  mutation addComment($ratingId: ID!, $commentText: String!) {
+    addComment(ratingId: $ratingId, commentText: $commentText) {
       _id
-      rateText
-      rateAuthor
+      ratingText
+      ratingAuthor
       createdAt
       comments {
         _id

@@ -6,7 +6,7 @@ import { ADD_COMMENT } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
-const CommentForm = ({ rateId }) => {
+const CommentForm = ({ ratingId }) => {
   const [commentText, setCommentText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -18,7 +18,7 @@ const CommentForm = ({ rateId }) => {
     try {
       const { data } = await addComment({
         variables: {
-          rateId,
+          ratingId,
           commentText,
           commentAuthor: Auth.getProfile().data.username,
         },
@@ -41,7 +41,7 @@ const CommentForm = ({ rateId }) => {
 
   return (
     <div>
-      <h4>What are your rates on this rate?</h4>
+      <h4>What are your ratings on this rating?</h4>
 
       {Auth.loggedIn() ? (
         <>
@@ -77,7 +77,7 @@ const CommentForm = ({ rateId }) => {
         </>
       ) : (
         <p>
-          You need to be logged in to share your rates. Please{' '}
+          You need to be logged in to share your ratings. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}

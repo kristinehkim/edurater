@@ -2,21 +2,21 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_RATE } from '../../utils/mutations';
-import { QUERY_RATES, QUERY_ME } from '../../utils/queries';
+import { ADD_RATING } from '../../utils/mutations';
+import { QUERY_RATINGS, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const RateForm = () => {
-  const [rateText, setRateText] = useState('');
+const RatingForm = () => {
+  const [ratingText, setRatingText] = useState('');
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addRate, { error }] = useMutation
-  (ADD_RATE, {
+  const [addRating, { error }] = useMutation
+  (ADD_RATING, {
     refetchQueries: [
-      QUERY_RATES,
-      'getRates',
+      QUERY_RATINGS,
+      'getRatings',
       QUERY_ME,
       'me'
     ]
@@ -26,14 +26,14 @@ const RateForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addRate({
+      const { data } = await addRating({
         variables: {
-          rateText,
-          rateAuthor: Auth.getProfile().data.username,
+          ratingText,
+          ratingAuthor: Auth.getProfile().data.username,
         },
       });
 
-      setRateText('');
+      setRatingText('');
     } catch (err) {
       console.error(err);
     }
@@ -42,15 +42,15 @@ const RateForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'rateText' && value.length <= 280) {
-      setRateText(value);
+    if (name === 'ratingText' && value.length <= 280) {
+      setRatingText(value);
       setCharacterCount(value.length);
     }
   };
 
   return (
     <div>
-      <h3>What's on your techy mind?</h3>
+      <h3>Leave a rating for an educator!</h3>
 
       {Auth.loggedIn() ? (
         <>
@@ -67,9 +67,9 @@ const RateForm = () => {
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="rateText"
-                placeholder="Here's a new rate..."
-                value={rateText}
+                name="ratingText"
+                placeholder="Here's a new rating..."
+                value={ratingText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -78,7 +78,7 @@ const RateForm = () => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Rate
+                Add Rating
               </button>
             </div>
             {error && (
@@ -90,7 +90,7 @@ const RateForm = () => {
         </>
       ) : (
         <p>
-          You need to be logged in to share your rates. Please{' '}
+          You need to be logged in to share your ratings. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
@@ -98,4 +98,4 @@ const RateForm = () => {
   );
 };
 
-export default RateForm;
+export default RatingForm;

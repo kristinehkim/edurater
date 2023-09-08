@@ -1,13 +1,13 @@
 import { useQuery } from '@apollo/client';
 
-import RateList from '../components/RateList';
-import RateForm from '../components/RateForm';
+import RatingList from '../components/RatingList';
+import RatingForm from '../components/RatingForm';
 
-import { QUERY_RATES } from '../utils/queries';
+import { QUERY_RATINGS } from '../utils/queries';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_RATES);
-  const rates = data?.rates || [];
+  const { loading, data } = useQuery(QUERY_RATINGS);
+  const ratings = data?.ratings || [];
 
   return (
     <main>
@@ -16,15 +16,15 @@ const Home = () => {
           className="col-12 col-md-10 mb-3 p-3"
           style={{ border: '1px dotted #1a1a1a' }}
         >
-          <RateForm />
+          <RatingForm />
         </div>
         <div className="col-12 col-md-8 mb-3">
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <RateList
-              rates={rates}
-              title="Some Feed for Rate(s)..."
+            <RatingList
+              ratings={ratings}
+              title="Some Feed for Rating(s)..."
             />
           )}
         </div>
