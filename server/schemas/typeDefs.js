@@ -4,13 +4,13 @@ const typeDefs = `
     username: String
     email: String
     password: String
-    rates: [Rate]!
+    ratings: [Rating]!
   }
 
-  type Rate {
+  type Rating {
     _id: ID
-    rateText: String
-    rateAuthor: String
+    ratingText: String
+    ratingAuthor: String
     createdAt: String
     comments: [Comment]!
   }
@@ -30,18 +30,18 @@ const typeDefs = `
   type Query {
     users: [User]
     user(username: String!): User
-    rates(username: String): [Rate]
-    rate(rateId: ID!): Rate
+    ratings(username: String): [Rating]
+    rating(ratingId: ID!): Rating
     me: User
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addRate(rateText: String!): Rate
-    addComment(rateId: ID!, commentText: String!): Rate
-    removeRate(rateId: ID!): Rate
-    removeComment(rateId: ID!, commentId: ID!): Rate
+    addRating(ratingText: String!): Rating
+    addComment(ratingId: ID!, commentText: String!): Rating
+    removeRating(ratingId: ID!): Rating
+    removeComment(ratingId: ID!, commentId: ID!): Rating
   }
 `;
 

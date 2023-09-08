@@ -6,32 +6,32 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      rates {
+      ratings {
         _id
-        rateText
+        ratingText
         createdAt
       }
     }
   }
 `;
 
-export const QUERY_RATES = gql`
-  query getRates {
-    rates {
+export const QUERY_RATINGS = gql`
+  query getRatings {
+    ratings {
       _id
-      rateText
-      rateAuthor
+      ratingText
+      ratingAuthor
       createdAt
     }
   }
 `;
 
-export const QUERY_SINGLE_RATE = gql`
-  query getSingleRate($rateId: ID!) {
-    rate(rateId: $rateId) {
+export const QUERY_SINGLE_RATING = gql`
+  query getSingleRating($ratingId: ID!) {
+    rating(ratingId: $ratingId) {
       _id
-      rateText
-      rateAuthor
+      ratingText
+      ratingAuthor
       createdAt
       comments {
         _id
@@ -49,10 +49,10 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      rates {
+      ratings {
         _id
-        rateText
-        rateAuthor
+        ratingText
+        ratingAuthor
         createdAt
       }
     }

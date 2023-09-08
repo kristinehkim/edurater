@@ -5,7 +5,7 @@ import App from './App.jsx';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import SingleRate from './pages/SingleRate';
+import SingleRating from './pages/SingleRating';
 import Profile from './pages/Profile';
 import ErrorPage from './pages/ErrorPage';
 
@@ -31,8 +31,8 @@ const router = createBrowserRouter([
         path: '/me',
         element: <Profile />
       }, {
-        path: '/rates/:rateId',
-        element: <SingleRate />
+        path: '/ratings/:ratingId',
+        element: <SingleRating />
       }
     ]
   },

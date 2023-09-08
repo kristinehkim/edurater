@@ -1,15 +1,15 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-const rateSchema = new Schema({
-  rateText: {
+const ratingSchema = new Schema({
+  ratingText: {
     type: String,
-    required: 'You need to leave a rate!',
+    required: 'You need to leave a rating!',
     minlength: 1,
     maxlength: 280,
     trim: true,
   },
-  rateAuthor: {
+  ratingAuthor: {
     type: String,
     required: true,
     trim: true,
@@ -40,6 +40,6 @@ const rateSchema = new Schema({
   ],
 });
 
-const Rate = model('Rate', rateSchema);
+const Rating = model('Rating', ratingSchema);
 
-module.exports = Rate;
+module.exports = Rating;

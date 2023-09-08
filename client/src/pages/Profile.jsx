@@ -1,8 +1,8 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import RateForm from '../components/RateForm';
-import RateList from '../components/RateList';
+import RatingForm from '../components/RatingForm';
+import RatingList from '../components/RatingList';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
@@ -24,7 +24,7 @@ const Profile = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-console.log(user);
+
   if (!user?.username) {
     return (
       <h4>
@@ -42,9 +42,9 @@ console.log(user);
         </h2>
 
         <div className="col-12 col-md-10 mb-5">
-          <RateList
-            rates={user.rates}
-            title={`${user.username}'s rates...`}
+          <RatingList
+            ratings={user.ratings}
+            title={`${user.username}'s ratings...`}
             showTitle={false}
             showUsername={false}
           />
@@ -54,7 +54,7 @@ console.log(user);
             className="col-12 col-md-10 mb-3 p-3"
             style={{ border: '1px dotted #1a1a1a' }}
           >
-            <RateForm />
+            <RatingForm />
           </div>
         )}
       </div>
