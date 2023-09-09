@@ -51,6 +51,8 @@ const resolvers = {
       if (context.user) {
         const rating = await Rating.create({
           ratingText,
+          ratedEducator,
+          rating,
           ratingAuthor: context.user.username,
         });
 

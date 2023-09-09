@@ -9,6 +9,8 @@ export const QUERY_USER = gql`
       ratings {
         _id
         ratingText
+        ratedEducator
+        rating
         createdAt
       }
     }
@@ -21,6 +23,8 @@ export const QUERY_RATINGS = gql`
       _id
       ratingText
       ratingAuthor
+      ratedEducator
+      rating
       createdAt
     }
   }
@@ -32,6 +36,8 @@ export const QUERY_SINGLE_RATING = gql`
       _id
       ratingText
       ratingAuthor
+      ratedEducator
+      rating
       createdAt
       comments {
         _id
@@ -53,6 +59,8 @@ export const QUERY_ME = gql`
         _id
         ratingText
         ratingAuthor
+        ratedEducator
+        rating
         createdAt
       }
     }

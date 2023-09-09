@@ -1,6 +1,8 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
+
+
 import RatingForm from '../components/RatingForm';
 import RatingList from '../components/RatingList';
 
