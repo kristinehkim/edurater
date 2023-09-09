@@ -13,7 +13,7 @@ db.once('open', async () => {
     await User.create(userSeeds);
 
     for (let i = 0; i < ratingSeeds.length; i++) {
-      const { _id, ratingAuthor } = await Rating.create(ratingSeeds[i]);
+      const { _id, ratingAuthor} = await Rating.create(ratingSeeds[i]);
       const user = await User.findOneAndUpdate(
         { username: ratingAuthor },
         {

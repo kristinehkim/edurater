@@ -30,6 +30,7 @@ export const ADD_RATING = gql`
       _id
       ratingText
       ratingAuthor
+      ratedEducator
       createdAt
       comments {
         _id
@@ -45,6 +46,7 @@ export const ADD_COMMENT = gql`
       _id
       ratingText
       ratingAuthor
+      ratedEducator
       createdAt
       comments {
         _id

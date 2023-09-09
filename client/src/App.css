@@ -1705,4 +1705,15 @@ label form [type='radio'] {
   .align-content-center-xl {
     align-content: center;
   }
+
+  input[type=radio]{
+    display: none;  
+  }
+  .star{
+    cursor: pointer;
+  }
+  .rating{
+    margin-left: 30px;
+    margin-top: -5px;
+  }
 }
