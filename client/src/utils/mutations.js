@@ -25,12 +25,13 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_RATING = gql`
-  mutation addRating($ratingText: String!) {
-    addRating(ratingText: $ratingText) {
+  mutation addRating($ratingText: String!, $ratedEducator: String!, $educatorRating: Int!) {
+    addRating(ratingText: $ratingText, ratedEducator: $ratedEducator, educatorRating: $educatorRating) {
       _id
       ratingText
       ratingAuthor
       ratedEducator
+      educatorRating
       createdAt
       comments {
         _id

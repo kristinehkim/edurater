@@ -41,7 +41,7 @@ const CommentForm = ({ ratingId }) => {
 
   return (
     <div>
-      <h4>What are your ratings on this rating?</h4>
+      <h4>What are your thoughts on this rating?</h4>
 
       {Auth.loggedIn() ? (
         <>

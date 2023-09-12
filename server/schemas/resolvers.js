@@ -1,5 +1,6 @@
 const { User, Rating } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
+const {ObjectId} = require('mongoose').Types
 
 const resolvers = {
   Query: {
@@ -47,17 +48,19 @@ const resolvers = {
 
       return { token, user };
     },
-    addRating: async (parent, { ratingText }, context) => {
+    addRating: async (parent, { ratingText, ratedEducator, educatorRating}, context) => {
+      console.log(ratedEducator)
       if (context.user) {
         const rating = await Rating.create({
           ratingText,
           ratedEducator,
-          rating,
+          educatorRating,
           ratingAuthor: context.user.username,
         });
-
+        console.log(rating)
+        console.log(context.user)
         await User.findOneAndUpdate(
-          { _id: context.user._id },
+          { _id: new ObjectId(context.user._id)},
           { $addToSet: { ratings: rating._id } }
         );
 
