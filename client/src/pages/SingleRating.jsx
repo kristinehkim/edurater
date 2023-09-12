@@ -25,17 +25,17 @@ const SingleRating = () => {
   return (
     <div className="my-3">
       <h3 className="card-header bg-dark text-light p-2 m-0">
-      {rating.ratingAuthor} <br />
-      <span style={{ fontSize: '1rem' }}>
-        rated {rating.ratedEducator}
+      <span style={{ fontSize: '2rem' }}>
+        {rating.ratedEducator} &nbsp;
         {[...Array(rating.educatorRating)].map((star) =>
           <FaStar 
           className ='star' 
-          size={20}
+          size={30}
           color= {"#ffc107"}
           />
-        )} on {rating.createdAt}
-      </span>
+        )}
+      </span> <br />
+      Rated by {rating.ratingAuthor} on {rating.createdAt}
       </h3>
       <div className="bg-light py-4">
         <blockquote
