@@ -10,7 +10,7 @@ export const QUERY_USER = gql`
         _id
         ratingText
         ratedEducator
-        rating
+        educatorRating
         createdAt
       }
     }
@@ -24,7 +24,7 @@ export const QUERY_RATINGS = gql`
       ratingText
       ratingAuthor
       ratedEducator
-      rating
+      educatorRating
       createdAt
     }
   }
@@ -37,7 +37,7 @@ export const QUERY_SINGLE_RATING = gql`
       ratingText
       ratingAuthor
       ratedEducator
-      rating
+      educatorRating
       createdAt
       comments {
         _id
@@ -60,7 +60,7 @@ export const QUERY_ME = gql`
         ratingText
         ratingAuthor
         ratedEducator
-        rating
+        educatorRating
         createdAt
       }
     }

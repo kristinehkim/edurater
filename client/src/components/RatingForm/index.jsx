@@ -12,7 +12,7 @@ import Auth from '../../utils/auth';
 const RatingForm = () => {
   const [ratingText, setRatingText] = useState('');
   const [ratedEducator, setRatedEducator] = useState('');
-
+  // const [educatorRating, setEducatorRating] = useState(0);
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addRating, { error }] = useMutation
@@ -27,18 +27,22 @@ const RatingForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log(ratedEducator);
+    console.log(ratingText);
+    console.log(educatorRating);
     try {
-      const { data } = await addRating({
+      const {data}  = await addRating({
         variables: {
           ratedEducator,
           ratingText,
+          educatorRating,
           ratingAuthor: Auth.getProfile().data.username,
         },
       });
 
       setRatingText('');
       setRatedEducator('');
+      setEducatorRating('')
     } catch (err) {
       console.error(err);
     }
@@ -50,15 +54,17 @@ const RatingForm = () => {
     if (name === 'ratingText' && value.length <= 280) {
       setRatingText(value);
       setCharacterCount(value.length);
-    } else if 
-      (name === 'ratedEducator' && value.length <= 280) {
+    }  
+    if (name === 'ratedEducator') {
         setRatedEducator(value);
-        setCharacterCount(value.length);
     }
-  };
+    // if (name === 'educatorRating'){
+    //   setEducatorRating(educatorRating)
+    // }
+  }
 
 
-const [rating, setRating] = useState(null)
+const [educatorRating, setEducatorRating] = useState(null)
 const [hover, setHover] = useState(null)
 
 
@@ -73,38 +79,38 @@ const [hover, setHover] = useState(null)
                 value={ratedEducator}
                 className="form-input"
                 style={{ height:'0.25', width:'fit-content', position:'relative', border:'none', textAlign:'center' }}
-                onChange={() => setRatedEducator(value)}
+                onChange={handleChange}
               ></input>
               !
           </h3>
 
-          <p className='flex-row' style={{display:'inline-flex', alignContent:'center'}}>
+          <div className='flex-row' style={{display:'inline-flex', alignContent:'center'}}>
             
              {[...Array(5)].map((star, index) => {
                 const newRating = index + 1 
                 return ( 
                 <label>
-              <input 
-                type="radio" 
-                name="rating"
-                value = {newRating}
-                onClick = {()=>setRating(newRating)}
-               />
-              <FaStar 
-                className ='star' 
-                size={20}
-                color= {newRating <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
-                onMouseEnter={()=> setHover(newRating)}
-                onMouseLeave={()=> setHover(null)}
+                 <input 
+                  type="radio" 
+                  name="educatorRating"
+                  value = {newRating}
+                  onClick = {()=>setEducatorRating(newRating)}
+                  />
+                    <FaStar 
+                      className ='star' 
+                      size={20}
+                      color= {newRating <= (hover || educatorRating) ? "#ffc107" : "#e4e5e9"}
+                      onMouseEnter={()=> setHover(educatorRating)}
+                      onMouseLeave={()=> setHover(null)}
                 />
                 </label>
                 );
              })}
                 <p className='rating'>
-                 {rating}
+                 {educatorRating}
                 </p>  
 
-          </p>
+          </div>
 
             
 

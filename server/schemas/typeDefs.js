@@ -12,7 +12,7 @@ const typeDefs = `
     ratingText: String
     ratingAuthor: String
     ratedEducator: String
-    rating: Int
+    educatorRating: Int
     createdAt: String
     comments: [Comment]!
   }
@@ -40,7 +40,7 @@ const typeDefs = `
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addRating(ratingText: String!, ratedEducator:String!, rating: Int!): Rating
+    addRating(ratingText: String!, ratedEducator: String!, educatorRating: Int!): Rating
     addComment(ratingId: ID!, commentText: String!): Rating
     removeRating(ratingId: ID!): Rating
     removeComment(ratingId: ID!, commentId: ID!): Rating

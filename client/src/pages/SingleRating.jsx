@@ -1,6 +1,7 @@
 // Import the `useParams()` hook
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import { FaStar } from 'react-icons/fa'
 
 import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
@@ -24,10 +25,17 @@ const SingleRating = () => {
   return (
     <div className="my-3">
       <h3 className="card-header bg-dark text-light p-2 m-0">
-        {rating.ratingAuthor} <br />
-        <span style={{ fontSize: '1rem' }}>
-          had this rating on {rating.createdAt}
-        </span>
+      {rating.ratingAuthor} <br />
+      <span style={{ fontSize: '1rem' }}>
+        rated {rating.ratedEducator}
+        {[...Array(rating.educatorRating)].map((star) =>
+          <FaStar 
+          className ='star' 
+          size={20}
+          color= {"#ffc107"}
+          />
+        )} on {rating.createdAt}
+      </span>
       </h3>
       <div className="bg-light py-4">
         <blockquote

@@ -24,7 +24,7 @@ const Home = () => {
           ) : (
             <RatingList
               ratings={ratings}
-              title="Some Feed for Rating(s)..."
+              title="Some of recent Educator Rating(s)..."
             />
           )}
         </div>

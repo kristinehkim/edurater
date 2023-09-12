@@ -14,6 +14,17 @@ const ratingSchema = new Schema({
     required: true,
     trim: true,
   },
+  ratedEducator: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  educatorRating: {
+    type: Number,
+    required: true,
+    minimun: 1,
+    maximun: 5,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -39,7 +50,7 @@ const ratingSchema = new Schema({
     },
   ],
 });
-
+ratingSchema.index({ratingAuthor: 1 , ratedEducator: 1}, {unique: true})
 const Rating = model('Rating', ratingSchema);
 
 module.exports = Rating;
