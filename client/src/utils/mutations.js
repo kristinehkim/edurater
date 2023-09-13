@@ -36,14 +36,17 @@ export const ADD_RATING = gql`
       comments {
         _id
         commentText
+        commentAuthor
+        commentRating
+        createdAt
       }
     }
   }
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($ratingId: ID!, $commentText: String!) {
-    addComment(ratingId: $ratingId, commentText: $commentText) {
+  mutation addComment($ratingId: ID!, $commentText: String!, $commentAuthor: String!, $commentRating: Int!) {
+    addComment(ratingId: $ratingId, commentText: $commentText, commentAuthor: $commentAuthor, commentRating: $commentRating) {
       _id
       ratingText
       ratingAuthor
@@ -52,6 +55,8 @@ export const ADD_COMMENT = gql`
       comments {
         _id
         commentText
+        commentAuthor
+        commentRating
         createdAt
       }
     }

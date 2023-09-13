@@ -69,13 +69,13 @@ const resolvers = {
       throw AuthenticationError;
       ('You need to be logged in!');
     },
-    addComment: async (parent, { ratingId, commentText }, context) => {
+    addComment: async (parent, { ratingId, commentText, commentRating }, context) => {
       if (context.user) {
         return Rating.findOneAndUpdate(
           { _id: ratingId },
           {
             $addToSet: {
-              comments: { commentText, commentAuthor: context.user.username },
+              comments: { commentText, commentAuthor: context.user.username, commentRating },
             },
           },
           {

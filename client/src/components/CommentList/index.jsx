@@ -1,10 +1,15 @@
+
+import { FaStar } from 'react-icons/fa'
+
+
+
 const CommentList = ({ comments = [] }) => {
   if (!comments.length) {
     return <h3>No Comments Yet</h3>;
   }
 
   return (
-    <>
+    <div>
       <h3
         className="p-5 display-inline-block"
         style={{ borderBottom: '1px dotted #1a1a1a' }}
@@ -12,10 +17,20 @@ const CommentList = ({ comments = [] }) => {
         Comments
       </h3>
       <div className="flex-row my-4">
+     
         {comments &&
-          comments.map((comment) => (
+          comments.map((comment) => (          
             <div key={comment._id} className="col-12 mb-3 pb-3">
               <div className="p-3 bg-dark text-light">
+                <span style={{ display: 'inline-flex', fontSize: '2rem', alignContent: 'center' }}>
+                   {[...Array(comment.commentRating)].map((star) =>
+                   <FaStar
+                     className='star'
+                     size={30}
+                     color={"#ffc107"}
+                    />
+                   )} &nbsp;
+                </span>
                 <h5 className="card-header">
                   {comment.commentAuthor} commented {''}
                   <span style={{ fontSize: '0.825rem' }}>
@@ -27,7 +42,7 @@ const CommentList = ({ comments = [] }) => {
             </div>
           ))}
       </div>
-    </>
+    </div>
   );
 };
 

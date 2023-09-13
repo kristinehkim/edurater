@@ -21,6 +21,7 @@ const typeDefs = `
     _id: ID
     commentText: String
     commentAuthor: String
+    commentRating: Int!
     createdAt: String
   }
 
@@ -41,7 +42,7 @@ const typeDefs = `
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addRating(ratingText: String!, ratedEducator: String!, educatorRating: Int!): Rating
-    addComment(ratingId: ID!, commentText: String!): Rating
+    addComment(ratingId: ID!, commentText: String!, commentAuthor: String!, commentRating: Int!): Rating
     removeRating(ratingId: ID!): Rating
     removeComment(ratingId: ID!, commentId: ID!): Rating
   }

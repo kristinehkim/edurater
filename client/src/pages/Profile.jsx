@@ -1,5 +1,6 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
 
 
 
@@ -30,8 +31,7 @@ const Profile = () => {
   if (!user?.username) {
     return (
       <h4>
-        You need to be logged in to see this. Use the navigation links above to
-        sign up or log in!
+        You need to be logged in to leave a Rating/Commnet. Please <Link className="btn btn-lg btn-info m-2" to="/login"> Login! </Link>
       </h4>
     );
   }
