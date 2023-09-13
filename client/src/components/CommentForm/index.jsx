@@ -47,7 +47,9 @@ const CommentForm = ({ ratingId }) => {
 
   return (
     <div>
-      <h4>How would you rate this Educator?</h4>
+      <h4>
+        <span className="loginStyle">How would you rate this Educator?</span>
+        </h4>
 
       {Auth.loggedIn() ? (
         <>
@@ -90,7 +92,7 @@ const CommentForm = ({ ratingId }) => {
               characterCount === 280 || error ? 'text-danger' : ''
             }`}
           >
-            Character Count: {characterCount}/280
+            <span className="loginStyle">Character Count: {characterCount}/280</span>
             {error && <span className="ml-2">{error.message}</span>}
           </p>
             </div>

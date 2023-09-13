@@ -62,7 +62,7 @@ const RatingList = ({
               className="btn btn-primary btn-block btn-squared"
               to={`/ratings/${rating._id}`}
             >
-              Join the discussion on this rating.
+              Rate this Educator
             </Link>
           </div>
         ))}
