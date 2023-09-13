@@ -43,6 +43,7 @@ export const QUERY_SINGLE_RATING = gql`
         _id
         commentText
         commentAuthor
+        commentRating        
         createdAt
       }
     }

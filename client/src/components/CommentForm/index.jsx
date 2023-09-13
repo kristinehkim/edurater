@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 import { ADD_COMMENT } from '../../utils/mutations';
+import { FaStar } from 'react-icons/fa'
 
 import Auth from '../../utils/auth';
 
@@ -20,6 +21,7 @@ const CommentForm = ({ ratingId }) => {
         variables: {
           ratingId,
           commentText,
+          commentRating,
           commentAuthor: Auth.getProfile().data.username,
         },
       });
@@ -39,20 +41,37 @@ const CommentForm = ({ ratingId }) => {
     }
   };
 
+
+  const [commentRating, setCommentRating] = useState(null)
+  const [hover, setHover] = useState(null)
+
   return (
     <div>
-      <h4>What are your thoughts on this rating?</h4>
+      <h4>How would you rate this Educator?</h4>
 
       {Auth.loggedIn() ? (
         <>
-          <p
-            className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
-            }`}
-          >
-            Character Count: {characterCount}/280
-            {error && <span className="ml-2">{error.message}</span>}
-          </p>
+        {[...Array(5)].map((star, index) => {
+                const newRating = index + 1 
+                return ( 
+                <label>
+                 <input 
+                  type="radio" 
+                  name="commentRating"
+                  value = {newRating}
+                  onClick = {()=>setCommentRating(newRating)}
+                  />
+                    <FaStar 
+                      className ='star' 
+                      size={20}
+                      color= {newRating <= (hover || commentRating) ? "#ffc107" : "#e4e5e9"}
+                      onMouseEnter={()=> setHover(commentRating)}
+                      onMouseLeave={()=> setHover(null)}
+                />
+                </label>
+                );
+             })}
+
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
@@ -66,6 +85,14 @@ const CommentForm = ({ ratingId }) => {
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
               ></textarea>
+                        <p
+            className={`m-0 ${
+              characterCount === 280 || error ? 'text-danger' : ''
+            }`}
+          >
+            Character Count: {characterCount}/280
+            {error && <span className="ml-2">{error.message}</span>}
+          </p>
             </div>
 
             <div className="col-12 col-lg-3">

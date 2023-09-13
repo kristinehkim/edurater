@@ -42,6 +42,10 @@ const ratingSchema = new Schema({
         type: String,
         required: true,
       },
+      commentRating: {
+        type: Number,
+        required: true,
+      },
       createdAt: {
         type: Date,
         default: Date.now,
