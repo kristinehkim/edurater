@@ -44,6 +44,26 @@ export const ADD_RATING = gql`
   }
 `;
 
+export const REMOVE_RATING = gql`
+  mutation removeRating($ratingId: ID!) {
+    removeRating(ratingId: $ratingId) {
+      _id
+      ratingText
+      ratingAuthor
+      ratedEducator
+      educatorRating
+      createdAt
+      comments {
+        _id
+        commentText
+        commentAuthor
+        commentRating
+        createdAt
+      }
+    }
+  }
+`;
+
 export const ADD_COMMENT = gql`
   mutation addComment($ratingId: ID!, $commentText: String!, $commentAuthor: String!, $commentRating: Int!) {
     addComment(ratingId: $ratingId, commentText: $commentText, commentAuthor: $commentAuthor, commentRating: $commentRating) {

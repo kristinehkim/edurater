@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
 
 
 import { FaStar } from 'react-icons/fa'
+import { GiTrashCan } from 'react-icons/gi'
+
+import { REMOVE_RATING } from '../../utils/mutations';
+import { QUERY_RATINGS, QUERY_ME } from '../../utils/queries';
+
+
 
 
 const RatingList = ({
@@ -14,13 +21,26 @@ const RatingList = ({
     return <h3>No Ratings Yet</h3>;
   }
 
+  
+const [removeRating, { error }] = useMutation
+(REMOVE_RATING, {
+  refetchQueries: [
+    QUERY_RATINGS,
+    'getRatings',
+    QUERY_ME,
+    'me'
+  ]
+});
+
   return (
+    
     <div>
+
       {showTitle && <h3>{title}</h3>}
       {ratings &&
         ratings.map((rating) => (
           <div key={rating._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
+            <h4 className="card-header bg-primary text-light p-2 m-0" >
               {showUsername ? (
                 <Link
                   className="text-light"
@@ -40,8 +60,8 @@ const RatingList = ({
 
                 </Link>
               ) : (
-                <p style={{ display: 'inline-flex' }}>
-                  <span style={{ display: 'inline-flex', fontSize: '1rem', alignContent: 'center' }}>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <label style={{ display: 'inline-flex', fontSize: '1rem', alignContent: 'center' }}>
                     You had rated {rating.ratedEducator} &nbsp;
                     {[...Array(rating.educatorRating)].map((star) =>
                       <FaStar
@@ -51,8 +71,16 @@ const RatingList = ({
                       />
                     )} &nbsp;
                     on {rating.createdAt}
-                  </span>
-                </p>
+                  </label>
+                  <p>
+                   <button style={{color: "#EE0C38", background:'#384478', borderColor:'white'}}>
+                    <GiTrashCan
+                    onClick={()=>{removeRating(rating.ratingId)}} />
+                   </button>
+                  </p>
+
+                </div>
+
               )}
             </h4>
             <div className="card-body bg-light p-2">

@@ -87,6 +87,7 @@ const resolvers = {
       throw AuthenticationError;
     },
     removeRating: async (parent, { ratingId }, context) => {
+      console.log(ratingId)
       if (context.user) {
         const rating = await Rating.findOneAndDelete({
           _id: ratingId,
