@@ -5,7 +5,7 @@ import { FaStar } from 'react-icons/fa'
 
 const CommentList = ({ comments = [] }) => {
   if (!comments.length) {
-    return <h3>No Comments Yet</h3>;
+    return <h3>No Ratings Yet</h3>;
   }
 
   return (

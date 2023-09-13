@@ -15,7 +15,7 @@ const Footer = () => {
           </button>
         )}
         <h4>
-          Made with{' '}
+          <span className="loginStyle"> Made with{' '}
           <span
             className="emoji"
             role="img"
@@ -24,7 +24,7 @@ const Footer = () => {
           >
             ❤️
           </span>{' '}
-          by the Rate My Educator team.
+          by the Rate My Educator team.</span>
         </h4>
       </div>
     </footer>
