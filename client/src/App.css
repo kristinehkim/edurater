@@ -615,6 +615,10 @@ a:hover {
   margin-left: auto !important;
 }
 
+.mText {
+  margin-left: 52px !important;
+}
+
 /* Margin - x axis */
 .mx-0 {
   margin-right: 0 !important;
@@ -812,6 +816,10 @@ a:hover {
   padding-left: 1.625rem !important;
 }
 
+.padLeft {
+  padding-left: 75px !important;
+}
+
 /* padding - x axis */
 .px-0 {
   padding-right: 0 !important;
@@ -928,6 +936,12 @@ a:hover {
 
 .text-link {
   color: #1b89bc !important;
+}
+
+/* header code */
+.rateStyle {
+  color: rgb(255, 57, 57) !important;
+  font-size: 45px !important;
 }
 
 /* BACKGROUND UTILS */

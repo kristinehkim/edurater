@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-
+import { GiShinyApple } from "react-icons/gi";
 import Auth from '../../utils/auth';
 
 const Header = () => {
@@ -12,9 +12,9 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
-            <h1 className="m-0">EDURATOR:Rate My Educator</h1>
+            <h1 className="m-0"><span className="pencilMargin"><GiShinyApple color="#FF3939" fontSize='45px'/></span> EDU<span className="rateStyle">RATE</span>R: <span className="rateStyle">Rate</span> My Educator</h1>
           </Link>
-          <p className="m-0">Leave a rating for your schools educator!</p>
+          <p className="m-0 mText">Leave a rating for your schools educator!</p>
         </div>
         <div>
           {Auth.loggedIn() ? (
@@ -43,3 +43,4 @@ const Header = () => {
 };
 
 export default Header;
+
