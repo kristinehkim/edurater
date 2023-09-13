@@ -19,8 +19,8 @@
  */
 body {
   margin: 0;
-  background-color: #000;
-  background-image: url(../public/blackboard\ texture\ 0102.jpg);
+  background-color: #000; 
+  background-image: url(../public/blackboard-texture-0102.jpg);
   background-repeat: repeat;
   color: #fff;
 }
