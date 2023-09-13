@@ -12,7 +12,6 @@ import { Outlet } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import backgroundImage from '../public/blackboard-texture-0102.jpg'
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -41,7 +40,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="flex-column justify-flex-start min-100-vh" style={{backgroundImage:`url${backgroundImage}`}}>
+      <div className="flex-column justify-flex-start min-100-vh">
         <Header />
         <div className="container">
           <Outlet />
