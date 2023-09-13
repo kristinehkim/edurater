@@ -31,7 +31,7 @@ const Profile = () => {
   if (!user?.username) {
     return (
       <h4>
-        You need to be logged in to leave a Rating/Commnet. Please <Link className="btn btn-lg btn-info m-2" to="/login"> Login! </Link>
+        You need to be logged in to leave a rating. Please <Link className="btn btn-lg btn-info m-2" to="/login"> Login! </Link>
       </h4>
     );
   }
@@ -39,7 +39,7 @@ const Profile = () => {
   return (
     <div>
       <div className="flex-row justify-center mb-3">
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+        <h2 className="col-12 col-md-10 text-light p-3 mb-5">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
 
@@ -54,7 +54,7 @@ const Profile = () => {
         {!userParam && (
           <div
             className="col-12 col-md-10 mb-3 p-3"
-            style={{ border: '1px dotted #1a1a1a' }}
+            style={{ border: '1px dotted #faf7f7' }}
           >
             <RatingForm />
           </div>

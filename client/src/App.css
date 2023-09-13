@@ -19,6 +19,10 @@
  */
 body {
   margin: 0;
+  background-color: #000; 
+  background-image: url(../public/blackboard-texture-0102.jpg);
+  background-repeat: repeat;
+  color: #fff;
 }
 
 /**
@@ -26,6 +30,7 @@ body {
  */
 main {
   display: block;
+  
 }
 
 /**
@@ -384,6 +389,7 @@ h2 {
 
 h3 {
   font-size: 1.75rem;
+  color: #faf7f7;
 }
 
 h4 {
@@ -403,6 +409,9 @@ p {
   font-size: 1.1rem;
   margin: 0 0 1rem;
   line-height: 1.5;
+}
+.loginStyle {
+  color: #faf7f7 !important;
 }
 
 ul,
@@ -574,6 +583,7 @@ a:hover {
 
 .mr-auto {
   margin-right: auto !important;
+  
 }
 
 /* Margin-left */
@@ -603,6 +613,10 @@ a:hover {
 
 .ml-auto {
   margin-left: auto !important;
+}
+
+.mText {
+  margin-left: 52px !important;
 }
 
 /* Margin - x axis */
@@ -802,6 +816,10 @@ a:hover {
   padding-left: 1.625rem !important;
 }
 
+.padLeft {
+  padding-left: 75px !important;
+}
+
 /* padding - x axis */
 .px-0 {
   padding-right: 0 !important;
@@ -918,6 +936,12 @@ a:hover {
 
 .text-link {
   color: #1b89bc !important;
+}
+
+/* header code */
+.rateStyle {
+  color: rgb(255, 57, 57) !important;
+  font-size: 45px !important;
 }
 
 /* BACKGROUND UTILS */

@@ -72,7 +72,7 @@ const [hover, setHover] = useState(null)
     <div>
       {Auth.loggedIn() ? (
         <>
-         <h3 style={{display:'block', alignContent:'center'}}>Leave your rating for 
+         <h3 style={{display:'block', alignContent:'center'}}>Leave your rating for &nbsp;
              <input
                 name="ratedEducator"
                 placeholder="Educator's Name"
@@ -81,7 +81,7 @@ const [hover, setHover] = useState(null)
                 style={{ height:'0.25', width:'fit-content', position:'relative', border:'none', textAlign:'center' }}
                 onChange={handleChange}
               ></input>
-              !
+              &nbsp;!
           </h3>
 
           <div className='flex-row' style={{display:'inline-flex', alignContent:'center'}}>
@@ -124,7 +124,7 @@ const [hover, setHover] = useState(null)
                 placeholder="Add any comments you may have"
                 value={ratingText}
                 className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                style={{ lineHeight: '1.5', resize: 'vertical'}}
                 onChange={handleChange}
               ></textarea>
             <p
@@ -132,7 +132,7 @@ const [hover, setHover] = useState(null)
               characterCount === 280 || error ? 'text-danger' : ''
             }`}
             >
-            Character Count: {characterCount}/280
+            <span className="loginStyle">Character Count: {characterCount}/280</span>
           </p>
             </div>
 
@@ -149,9 +149,9 @@ const [hover, setHover] = useState(null)
           </form>
         </>
       ) : (
-        <p>
-          You need to be logged in to share your ratings. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+        <p> 
+          <span className="loginStyle">You need to be logged in to share your ratings. Please{' '}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link></span>
         </p>
       )}
     </div>
