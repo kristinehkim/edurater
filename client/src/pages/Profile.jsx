@@ -31,7 +31,7 @@ const Profile = () => {
   if (!user?.username) {
     return (
       <h4>
-        You need to be logged in to leave a Rating/Commnet. Please <Link className="btn btn-lg btn-info m-2" to="/login"> Login! </Link>
+        You need to be logged in to leave a rating. Please <Link className="btn btn-lg btn-info m-2" to="/login"> Login! </Link>
       </h4>
     );
   }
