@@ -1732,8 +1732,9 @@ label form [type='radio'] {
     align-content: center;
   }
 
-  input[type=radio]{
-    display: none;  
+  input[type = radio]{
+    display: none; 
+    opacity: 0;
   }
   .star{
     cursor: pointer;
@@ -1742,4 +1743,5 @@ label form [type='radio'] {
     margin-left: 30px;
     margin-top: -5px;
   }
-}
+  }
+

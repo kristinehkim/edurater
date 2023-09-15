@@ -105,7 +105,7 @@ const CommentForm = ({ ratingId }) => {
           </form>
         </>
       ) : (
-        <p>
+        <p >
           You need to be logged in to share your ratings. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>

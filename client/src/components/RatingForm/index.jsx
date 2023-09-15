@@ -89,8 +89,9 @@ const [hover, setHover] = useState(null)
              {[...Array(5)].map((star, index) => {
                 const newRating = index + 1 
                 return ( 
-                <label>
-                 <input 
+                <label key={index}>
+                 <input
+                  style={{display:'none'}} 
                   type="radio" 
                   name="educatorRating"
                   value = {newRating}

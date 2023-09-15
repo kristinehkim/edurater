@@ -11,7 +11,7 @@ const resolvers = {
       return User.findOne({ username }).populate('ratings');
     },
     ratings: async (parent, { username }) => {
-      const params = username ? { username } : {};
+      const params = username ? {ratingAuthor: username} : {};
       return Rating.find(params).sort({ createdAt: -1 });
     },
     rating: async (parent, { ratingId }) => {
@@ -49,8 +49,7 @@ const resolvers = {
       return { token, user };
     },
     addRating: async (parent, { ratingText, ratedEducator, educatorRating}, context) => {
-      console.log(ratedEducator)
-      if (context.user) {
+          if (context.user) {
         const rating = await Rating.create({
           ratingText,
           ratedEducator,
@@ -89,14 +88,12 @@ const resolvers = {
     removeRating: async (parent, { ratingId }, context) => {
       console.log(ratingId)
       if (context.user) {
-        const rating = await Rating.findOneAndDelete({
-          _id: ratingId,
-          ratingAuthor: context.user.username,
-        });
+        const rating = await Rating.findOneAndDelete(
+          {_id: ratingId});
 
         await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { ratings: rating._id } }
+          { _id: (context.user._id) },
+          { $pull: { ratings: {ratingId: rating._id} } }
         );
 
         return rating;
