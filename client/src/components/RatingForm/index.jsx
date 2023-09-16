@@ -36,7 +36,7 @@ const RatingForm = () => {
           ratingAuthor: Auth.getProfile().data.username,
         },
       });
-
+      
       setRatingText('');
       setRatedEducator('');
       setEducatorRating('')
