@@ -14,8 +14,8 @@ import Auth from '../../utils/auth';
 
 
 const RatingList = ({
+  removeRating,
   ratings,
-  ratingId,
   title,
   showTitle = true,
   showUsername = true,
@@ -24,14 +24,6 @@ const RatingList = ({
     return <h3>No Ratings Yet</h3>;
   }
   
-const [removeRating, { error}] = useMutation(REMOVE_RATING, {
-  refetchQueries: [
-    QUERY_RATINGS,
-    'getRatings',
-    QUERY_ME,
-    'me'
-  ]
-});
 
 
 

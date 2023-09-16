@@ -65,7 +65,7 @@ export const REMOVE_RATING = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($ratingId: Int!, $commentText: String!, $commentAuthor: String!, $commentRating: Int!) {
+  mutation addComment($ratingId: ID!, $commentText: String!, $commentAuthor: String!, $commentRating: Int!) {
     addComment(ratingId: $ratingId, commentText: $commentText, commentAuthor: $commentAuthor, commentRating: $commentRating) {
       _id
       ratingText

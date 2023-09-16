@@ -27,8 +27,9 @@ const SingleRating = () => {
       <h3 className="card-header bg-dark text-light p-2 m-0">
       <span style={{ fontSize: '2rem' }}>
         {rating.ratedEducator} &nbsp;
-        {[...Array(rating.educatorRating)].map((star) =>
+        {[...Array(rating.educatorRating)].map((star, index) =>
           <FaStar 
+          key={index}
           className ='star' 
           size={30}
           color= {"#ffc107"}

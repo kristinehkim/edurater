@@ -1,7 +1,9 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
-
+import { useMutation } from '@apollo/client';
+import { REMOVE_RATING } from '../utils/mutations';
+import { QUERY_RATINGS} from '../utils/queries';
 
 
 import RatingForm from '../components/RatingForm';
@@ -10,9 +12,28 @@ import RatingList from '../components/RatingList';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
+import { useEffect, useState } from 'react';
 
 const Profile = () => {
   const { username: userParam } = useParams();
+  // let [user, setUser] = useState({})
+ 
+  // move removeRating/useMutation to this component
+  // pass the removeRating function to RatingList as a prop
+  // ratingList calls that prop function to remove rating
+  // query up should refire automatically
+
+  const [removeRating, { error}] = useMutation(REMOVE_RATING, {
+  refetchQueries: [
+    QUERY_RATINGS,
+    'getRatings',
+    QUERY_ME,
+    'me'
+  ]
+});
+
+
+
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
@@ -20,9 +41,12 @@ const Profile = () => {
 
   const user = data?.me || data?.user || {};
   // navigate to personal profile page if username is yours
+  // useEffect(() => {setUser(data)} , [data])
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/me" />;
   }
+  
+  
 
   if (loading) {
     return <div>Loading...</div>;
@@ -49,6 +73,7 @@ const Profile = () => {
             title={`${user.username}'s ratings...`}
             showTitle={false}
             showUsername={false}
+            removeRating={removeRating}
           />
         </div>
         {!userParam && (

@@ -15,8 +15,8 @@ const RatingForm = () => {
   // const [educatorRating, setEducatorRating] = useState(0);
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addRating, { error }] = useMutation
-  (ADD_RATING, {
+  const [addRating, { error }] = useMutation (ADD_RATING,
+     {
     refetchQueries: [
       QUERY_RATINGS,
       'getRatings',
@@ -27,9 +27,6 @@ const RatingForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(ratedEducator);
-    console.log(ratingText);
-    console.log(educatorRating);
     try {
       const {data}  = await addRating({
         variables: {
