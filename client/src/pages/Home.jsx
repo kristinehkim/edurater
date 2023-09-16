@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 
 import RatingList from '../components/RatingList';
@@ -6,8 +7,13 @@ import RatingForm from '../components/RatingForm';
 import { QUERY_RATINGS } from '../utils/queries';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_RATINGS);
+  let { loading, data, refetch } = useQuery(QUERY_RATINGS);
   const ratings = data?.ratings || [];
+
+  useEffect (() => {
+    refetch();
+  })
+  
 
   return (
     <main>
