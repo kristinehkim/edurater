@@ -17,7 +17,6 @@ import Auth from '../utils/auth';
 
 const Profile = () => {
   const { username: userParam } = useParams();
-  // let [user, setUser] = useState({})
  
   // move removeRating/useMutation to this component
   // pass the removeRating function to RatingList as a prop
@@ -46,7 +45,6 @@ const Profile = () => {
   
   const user = data?.me || data?.user || {};
   // navigate to personal profile page if username is yours
-  // useEffect(() => {setUser(data)} , [data])
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/me" />;
   }

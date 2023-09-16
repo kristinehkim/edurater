@@ -12,7 +12,6 @@ import Auth from '../../utils/auth';
 const RatingForm = () => {
   const [ratingText, setRatingText] = useState('');
   const [ratedEducator, setRatedEducator] = useState('');
-  // const [educatorRating, setEducatorRating] = useState(0);
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addRating, { error }] = useMutation (ADD_RATING,
@@ -55,9 +54,6 @@ const RatingForm = () => {
     if (name === 'ratedEducator') {
         setRatedEducator(value);
     }
-    // if (name === 'educatorRating'){
-    //   setEducatorRating(educatorRating)
-    // }
   }
 
 
