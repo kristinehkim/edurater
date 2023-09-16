@@ -56,12 +56,13 @@ const CommentForm = ({ ratingId }) => {
         {[...Array(5)].map((star, index) => {
                 const newRating = index + 1 
                 return ( 
-                <label>
+                <label key={index}>
                  <input 
                   type="radio" 
                   name="commentRating"
                   value = {newRating}
                   onClick = {()=>setCommentRating(newRating)}
+                  style={{display: 'none'}}
                   />
                     <FaStar 
                       className ='star' 
@@ -105,7 +106,7 @@ const CommentForm = ({ ratingId }) => {
           </form>
         </>
       ) : (
-        <p>
+        <p >
           You need to be logged in to share your ratings. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>

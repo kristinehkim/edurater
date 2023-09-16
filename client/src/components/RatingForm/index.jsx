@@ -15,8 +15,8 @@ const RatingForm = () => {
   // const [educatorRating, setEducatorRating] = useState(0);
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addRating, { error }] = useMutation
-  (ADD_RATING, {
+  const [addRating, { error }] = useMutation (ADD_RATING,
+     {
     refetchQueries: [
       QUERY_RATINGS,
       'getRatings',
@@ -27,9 +27,6 @@ const RatingForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(ratedEducator);
-    console.log(ratingText);
-    console.log(educatorRating);
     try {
       const {data}  = await addRating({
         variables: {
@@ -89,8 +86,9 @@ const [hover, setHover] = useState(null)
              {[...Array(5)].map((star, index) => {
                 const newRating = index + 1 
                 return ( 
-                <label>
-                 <input 
+                <label key={index}>
+                 <input
+                  style={{display:'none'}} 
                   type="radio" 
                   name="educatorRating"
                   value = {newRating}
