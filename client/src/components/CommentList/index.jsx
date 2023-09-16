@@ -14,7 +14,7 @@ const CommentList = ({ comments = [] }) => {
         className="p-5 display-inline-block"
         style={{ borderBottom: '1px dotted #1a1a1a' }}
       >
-        Comments
+        Ratings
       </h3>
       <div className="flex-row my-4">
      
@@ -32,7 +32,7 @@ const CommentList = ({ comments = [] }) => {
                    )} &nbsp;
                 </span>
                 <h5 className="card-header">
-                  {comment.commentAuthor} commented {''}
+                  {comment.commentAuthor} rated {''}
                   <span style={{ fontSize: '0.825rem' }}>
                     on {comment.createdAt}
                   </span>
