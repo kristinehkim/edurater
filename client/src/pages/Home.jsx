@@ -12,7 +12,7 @@ const Home = () => {
 
   useEffect (() => {
     refetch();
-  })
+  });
   
 
   return (
@@ -30,7 +30,7 @@ const Home = () => {
           ) : (
             <RatingList
               ratings={ratings}
-              title="Some of recent Educator Rating(s)..."
+              title="Recent Educator Rating(s)..."
             />
           )}
         </div>

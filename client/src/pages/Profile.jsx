@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
@@ -12,7 +13,7 @@ import RatingList from '../components/RatingList';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
-import { useEffect, useState } from 'react';
+
 
 const Profile = () => {
   const { username: userParam } = useParams();
@@ -23,7 +24,7 @@ const Profile = () => {
   // ratingList calls that prop function to remove rating
   // query up should refire automatically
 
-  const [removeRating, { error}] = useMutation(REMOVE_RATING, {
+  const [removeRating, { error }] = useMutation(REMOVE_RATING, {
   refetchQueries: [
     QUERY_RATINGS,
     'getRatings',
@@ -35,10 +36,14 @@ const Profile = () => {
 
 
 
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+  const { loading, data, refetch } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
 
+  useEffect(() => {
+    refetch();
+  });
+  
   const user = data?.me || data?.user || {};
   // navigate to personal profile page if username is yours
   // useEffect(() => {setUser(data)} , [data])
@@ -59,6 +64,7 @@ const Profile = () => {
       </h4>
     );
   }
+
 
   return (
     <div>

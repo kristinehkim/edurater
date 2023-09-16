@@ -107,8 +107,8 @@ const CommentForm = ({ ratingId }) => {
         </>
       ) : (
         <p >
-          You need to be logged in to share your ratings. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+          <span className="loginStyle">You need to be logged in to share your ratings. Please{' '}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link></span>
         </p>
       )}
     </div>
