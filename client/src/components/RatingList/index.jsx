@@ -60,7 +60,7 @@ const RatingList = ({
               ) : (
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <label style={{ display: 'inline-flex', fontSize: '1rem', alignContent: 'center' }}>
-                    You had rated {rating.ratedEducator} &nbsp;
+                    Rated {rating.ratedEducator} &nbsp;
                     {[...Array(rating.educatorRating)].map((star, index) =>
                       <FaStar
                         className='star'
