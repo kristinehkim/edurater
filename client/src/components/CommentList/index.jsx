@@ -23,11 +23,12 @@ const CommentList = ({ comments = [] }) => {
             <div key={comment._id} className="col-12 mb-3 pb-3">
               <div className="p-3 bg-dark text-light">
                 <span style={{ display: 'inline-flex', fontSize: '2rem', alignContent: 'center' }}>
-                   {[...Array(comment.commentRating)].map((star) =>
+                   {[...Array(comment.commentRating)].map((star, index) =>
                    <FaStar
                      className='star'
                      size={30}
                      color={"#ffc107"}
+                     key={index}
                     />
                    )} &nbsp;
                 </span>
