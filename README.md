@@ -36,7 +36,7 @@ Our app provides a place for students to review, rate and research their teacher
 List the ready features here:
 - Delete a rating button
 - Five star rating
-- ability to comment or rating on a rating
+- Ability to comment or rating on a rating
 
 
 ## Screenshots
@@ -48,30 +48,30 @@ List the ready features here:
 
 To start the server, first run the command "npm run install" to install all the requried dependecies.  Next, to run the seeds run the command "npm run seed".  Finally, run the command, "npm run develop" to start the server. The app will open on your browser automatically. 
 
-Github Repo: https://github.com/Pinto006/rate-my-educator
+[Rate My Educator GitHub Repo](https://github.com/Pinto006/rate-my-educator)
 
-Heroku URL: https://git.heroku.com/damp-wildwood-31060.git
+[Rate My Educator Deployed Site](https://damp-wildwood-31060-690d212e58d9.herokuapp.com/)
 
 
 ## Future Development
 
 The next features we would like to work on for future development are: 
-1. add a specific teacher/principal page or profile
-2. add a section to include the school the teacher or principal works at and make the school searchable
-3. add a 3rd party API to search for a school's location and information 
-4. make the edurater data searchable
-5. create an educator model
+1. Add a specific teacher/principal page or profile
+2. Add a section to include the school the teacher or principal works at and make the school searchable
+3. Add a 3rd party API to search for a school's location and information 
+4. Make the edurater data searchable
+5. Create an educator model
 
 
 ## Acknowledgements
 
-[Mallorie Pinto Git Hub Repo](https://github.com/Pinto006?tab=repositories)
+[Mallorie Pinto GitHub Repo](https://github.com/Pinto006?tab=repositories)
 
-[Kristine Kim Git Hub Repo](https://github.com/kristinehkim) 
+[Kristine Kim GitHub Repo](https://github.com/kristinehkim) 
 
-[Siavash Namiranian Git Hub Repo](https://github.com/SiavashNamiranian)
+[Siavash Namiranian GitHub Repo](https://github.com/SiavashNamiranian)
 
-[Elias Rivera Git Hub Repo](https://github.com/eliasjrivera)
+[Elias Rivera GitHub Repo](https://github.com/eliasjrivera)
 
 
 ## License 
