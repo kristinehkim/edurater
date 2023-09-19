@@ -56,8 +56,7 @@ const resolvers = {
           educatorRating,
           ratingAuthor: context.user.username,
         });
-        console.log(rating)
-        console.log(context.user)
+        
         await User.findOneAndUpdate(
           { _id: new ObjectId(context.user._id)},
           { $addToSet: { ratings: rating._id } }
