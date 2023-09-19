@@ -55,20 +55,23 @@ Heroku URL: https://git.heroku.com/damp-wildwood-31060.git
 
 ## Future Development
 
-The next items we would like to work on for future development are: 
-1. adding a search bar to search for a specific teacher or principal
-2. add a section to include the school the teacher or principal works at and    make the school searchable
+The next features we would like to work on for future development are: 
+1. add a specific teacher/principal page or profile
+2. add a section to include the school the teacher or principal works at and make the school searchable
+3. add a 3rd party API to search for a school's location and information 
+4. make the edurater data searchable
+5. create an educator model
 
 
 ## Acknowledgements
 
-Mallorie Pinto
+[Mallorie Pinto Git Hub Repo](https://github.com/Pinto006?tab=repositories)
 
-Kristine Kim 
+[Kristine Kim Git Hub Repo](https://github.com/kristinehkim) 
 
-Siavash Namiranian
+[Siavash Namiranian Git Hub Repo](https://github.com/SiavashNamiranian)
 
-Elias Rivera
+[Elias Rivera Git Hub Repo](https://github.com/eliasjrivera)
 
 
 ## License 
