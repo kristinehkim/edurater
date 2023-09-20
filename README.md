@@ -46,7 +46,7 @@ List the ready features here:
 
 ## Setup
 
-To start the server, first run the command "npm run install" to install all the requried dependecies.  Next, to run the seeds run the command "npm run seed".  Finally, run the command, "npm run develop" to start the server. The app will open on your browser automatically. 
+To start the server, first run the command `npm run install` to install all the requried dependecies.  Next, to run the seeds run the command `npm run seed`.  Finally, run the command, `npm run develop` to start the server. The app will open on your browser automatically. 
 
 [Rate My Educator GitHub Repo](https://github.com/Pinto006/rate-my-educator)
 
@@ -65,13 +65,13 @@ The next features we would like to work on for future development are:
 
 ## Acknowledgements
 
-[Mallorie Pinto GitHub Repo](https://github.com/Pinto006?tab=repositories)
+[Mallorie Pinto's GitHub](https://github.com/Pinto006?tab=repositories)
 
-[Kristine Kim GitHub Repo](https://github.com/kristinehkim) 
+[Kristine Kim's GitHub](https://github.com/kristinehkim) 
 
-[Siavash Namiranian GitHub Repo](https://github.com/SiavashNamiranian)
+[Siavash Namiranian's GitHub](https://github.com/SiavashNamiranian)
 
-[Elias Rivera GitHub Repo](https://github.com/eliasjrivera)
+[Elias Rivera's GitHub](https://github.com/eliasjrivera)
 
 
 ## License 
